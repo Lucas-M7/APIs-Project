@@ -27,8 +27,8 @@ public class VeiculosController : ControllerBase
             if (response.IsSuccessStatusCode)
             {
                 string content = await response.Content.ReadAsStringAsync();
-                var holidays = JsonConvert.DeserializeObject<object>(content);
-                string formattedJson = JsonConvert.SerializeObject(holidays, Formatting.Indented);
+                var veiculos = JsonConvert.DeserializeObject<object>(content);
+                string formattedJson = JsonConvert.SerializeObject(veiculos, Formatting.Indented);
                 return Ok(formattedJson);
             }
             else
@@ -36,9 +36,9 @@ public class VeiculosController : ControllerBase
                 return StatusCode((int)response.StatusCode, response.ReasonPhrase);
             }
         }
-        catch (HttpRequestException ex)
+        catch
         {
-            return BadRequest(ex.Message);
+            throw new ArgumentException("Falha ao fazer o consumo da API");
         }
     }
 
@@ -54,8 +54,8 @@ public class VeiculosController : ControllerBase
             if (response.IsSuccessStatusCode)
             {
                 string content = await response.Content.ReadAsStringAsync();
-                var holidays = JsonConvert.DeserializeObject<object>(content);
-                string formattedJson = JsonConvert.SerializeObject(holidays, Formatting.Indented);
+                var veiculos = JsonConvert.DeserializeObject<object>(content);
+                string formattedJson = JsonConvert.SerializeObject(veiculos, Formatting.Indented);
                 return Ok(formattedJson);
             }
             else
@@ -63,9 +63,9 @@ public class VeiculosController : ControllerBase
                 return StatusCode((int)response.StatusCode, response.ReasonPhrase);
             }
         }
-        catch (HttpRequestException ex)
+        catch
         {
-            return BadRequest(ex.Message);
+            throw new ArgumentException("Falha ao fazer o consumo da API");
         }
     }
 
@@ -81,8 +81,8 @@ public class VeiculosController : ControllerBase
             if (response.IsSuccessStatusCode)
             {
                 string content = await response.Content.ReadAsStringAsync();
-                var holidays = JsonConvert.DeserializeObject<object>(content);
-                string formattedJson = JsonConvert.SerializeObject(holidays, Formatting.Indented);
+                var veiculos = JsonConvert.DeserializeObject<object>(content);
+                string formattedJson = JsonConvert.SerializeObject(veiculos, Formatting.Indented);
                 return Ok(formattedJson);
             }
             else
@@ -90,9 +90,9 @@ public class VeiculosController : ControllerBase
                 return StatusCode((int)response.StatusCode, response.ReasonPhrase);
             }
         }
-        catch (HttpRequestException ex)
+        catch
         {
-            return BadRequest(ex.Message);
+            throw new ArgumentException("Falha ao fazer o consumo da API");
         }
     }
 }

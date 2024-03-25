@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace GithubAPI.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/")]
 public class UserGithubController : ControllerBase
 {
     private readonly IHttpClientFactory _httpClientFactory;
@@ -14,7 +14,7 @@ public class UserGithubController : ControllerBase
         _httpClientFactory = httpClientFactory;
     }
 
-    [HttpGet("{username}")]
+    [HttpGet("user/{username}")]
     public async Task<IActionResult> GetUser(string username)
     {
         try
@@ -30,9 +30,9 @@ public class UserGithubController : ControllerBase
             }
             return Ok(response);
         }
-        catch (HttpRequestException)
+        catch
         {
-            return NotFound();
+            throw new ArgumentException("Falha ao fazer o consumo da API");
         }
     }
 }

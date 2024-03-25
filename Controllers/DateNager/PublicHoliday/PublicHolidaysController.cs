@@ -36,9 +36,9 @@ public class PublicHolidaysController : ControllerBase
                 return StatusCode((int)response.StatusCode, response.ReasonPhrase);
             }
         }
-        catch (HttpRequestException ex)
+        catch
         {
-            return BadRequest(ex.Message);
+            throw new ArgumentException("Falha ao fazer o consumo da API");
         }
     }
 
@@ -63,9 +63,9 @@ public class PublicHolidaysController : ControllerBase
                 return StatusCode((int)response.StatusCode, response.ReasonPhrase);
             }
         }
-        catch (HttpRequestException ex)
+        catch
         {
-            return BadRequest(ex.Message);
+            throw new ArgumentException("Falha ao fazer o consumo da API");
         }
     }
 }
