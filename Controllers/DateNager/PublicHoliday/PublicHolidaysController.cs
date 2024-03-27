@@ -15,6 +15,22 @@ public class PublicHolidaysController : ControllerBase
         _httpClient.BaseAddress = new Uri("https://date.nager.at");
     }
 
+
+    /// <summary>
+    /// Retorna os próximos feriados nacionais do país desejado
+    /// </summary>
+    /// <param name="countryCode"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentException"></exception>
+    /// <remarks>
+    /// Sample request:
+    ///
+    ///     GET /NextPublicHolidays/{countryCode}
+    ///     {
+    ///        "countryCode": "BR"
+    ///     }
+    ///
+    /// </remarks>
     [HttpGet("NextPublicHolidays/{countryCode}")]
     public async Task<IActionResult> GetDate(string countryCode)
     {
@@ -42,6 +58,24 @@ public class PublicHolidaysController : ControllerBase
         }
     }
 
+
+    /// <summary>
+    /// Retorna todos os feriados nacionais do ano e país desejado
+    /// </summary>
+    /// <param name="year"></param>
+    /// <param name="countryCode"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentException"></exception>
+    /// <remarks>
+    /// Sample request:
+    ///
+    ///     GET /AllPublicHolidays/{year}/{countryCode}
+    ///     {
+    ///        "year": 2024,
+    ///        "countryCode": "BR"
+    ///     }
+    ///
+    /// </remarks>
     [HttpGet("AllPublicHolidays/{year}/{countryCode}")]
     public async Task<IActionResult> GetDateYear(string year, string countryCode)
     {

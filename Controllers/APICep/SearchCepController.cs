@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 namespace Api_Que_ConsomeOutrasApi.Controllers.APICep;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/")]
 public class SearchCepController : ControllerBase
 {
     private readonly HttpClient _httpClient;
@@ -16,7 +16,27 @@ public class SearchCepController : ControllerBase
         _httpClient.BaseAddress = new Uri("https://viacep.com.br/");
     }
 
-    [HttpGet("GetYourCep/{UF}/{Cidade}/{Bairro}")]
+    /// <summary>
+    /// Retorna as informações Estado, Cidade e Bairro passado, no parâmetro bairro 
+    /// você pode escrever (Avenida) que vai retornar todos endereços que tem essa informação contida
+    /// </summary>
+    /// <param name="UF"></param>
+    /// <param name="Cidade"></param>
+    /// <param name="Bairro"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentException"></exception>
+    /// <remarks>
+    /// Sample request:
+    ///
+    ///     GET /YourCep/{UF}/{Cidade}/{Bairro}
+    ///     {
+    ///     "UF": "PE",
+    ///     "Cidade": "Recife",
+    ///     "Bairro": "Boa Viagem"
+    ///     }
+    ///
+    /// </remarks>
+    [HttpGet("YourCep/{UF}/{Cidade}/{Bairro}")]
     public async Task<IActionResult> GetYoutCep(string UF, string Cidade, string Bairro)
     {
         try

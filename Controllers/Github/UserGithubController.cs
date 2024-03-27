@@ -14,6 +14,21 @@ public class UserGithubController : ControllerBase
         _httpClientFactory = httpClientFactory;
     }
 
+    /// <summary>
+    /// Retorna informações básicas de um usuário do Github
+    /// </summary>
+    /// <param name="username"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentException"></exception>
+    /// <remarks>
+    /// Sample request:
+    ///
+    ///     GET /user/{username}
+    ///     {
+    ///        "username": "Nome-Do-Usuário"
+    ///     }
+    ///
+    /// </remarks>
     [HttpGet("user/{username}")]
     public async Task<IActionResult> GetUser(string username)
     {

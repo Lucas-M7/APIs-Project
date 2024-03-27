@@ -1,7 +1,6 @@
+using System.Reflection;
 using System.Text;
-using GithubAPI.Controllers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 var builder = WebApplication.CreateBuilder(args);
@@ -57,6 +56,16 @@ builder.Services.AddSwaggerGen(options =>
         Array.Empty<string>()
     }
     });
+
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Version = "v1",
+        Title = "SyncAPI",
+        Description = "An ASP.NET Core Web API than makes the consumption of other APIs."
+    });
+
+    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
 
 var app = builder.Build();

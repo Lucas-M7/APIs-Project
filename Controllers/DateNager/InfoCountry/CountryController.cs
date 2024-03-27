@@ -15,6 +15,21 @@ public class CountryController : ControllerBase
         _httpClient.BaseAddress = new Uri("https://date.nager.at");
     }
 
+    /// <summary>
+    /// Retorna algumas informações sobre o país desejado
+    /// </summary>
+    /// <param name="countryCode"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentException"></exception>
+    /// <remarks>
+    /// Sample request:
+    ///
+    ///     GET /CountryInfo/{countryCode}
+    ///     {
+    ///        "countryCode": "BR"
+    ///     }
+    ///
+    /// </remarks>
     [HttpGet("CountryInfo/{countryCode}")]
     public async Task<IActionResult> GetCountry(string countryCode)
     {
@@ -42,6 +57,11 @@ public class CountryController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Retornar todos os países disponíveis nessa API
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="ArgumentException"></exception>
     [HttpGet("AvailableCountries")]
     public async Task<IActionResult> GetCountries()
     {

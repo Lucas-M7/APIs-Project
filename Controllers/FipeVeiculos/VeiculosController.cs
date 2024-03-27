@@ -15,6 +15,12 @@ public class VeiculosController : ControllerBase
         _httpClient.BaseAddress = new Uri("https://parallelum.com.br/fipe/api/v1");
     }
 
+
+    /// <summary>
+    /// Retorna as marcas disponíveis para consulta
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="ArgumentException"></exception>
     [HttpGet("carros/marcas")]
     public async Task<IActionResult> GetCars()
     {
@@ -42,6 +48,21 @@ public class VeiculosController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Retorna os modelos da marca desejada de acordo com o código (id) passado
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentException"></exception>
+    /// <remarks>
+    /// Sample request:
+    ///
+    ///     GET /carros/marcas/{id}/modelos
+    ///     {
+    ///        "id": 58
+    ///     }
+    ///
+    /// </remarks>
     [HttpGet("carros/marcas/{id}/modelos")]
     public async Task<IActionResult> GetCarsModel(int id)
     {

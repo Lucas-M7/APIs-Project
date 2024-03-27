@@ -16,6 +16,11 @@ public class MyIPController : ControllerBase
         _httpClient.BaseAddress = new Uri("https://www.myip.com/");
     }
 
+    /// <summary>
+    /// Retorna o seu endereço IP
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="ArgumentException"></exception>
     [HttpGet("GetMyIP")]
     public async Task<IActionResult> GetMyIP()
     {
