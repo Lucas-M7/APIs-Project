@@ -1,5 +1,6 @@
 using System.Reflection;
 using System.Text;
+using Api_Que_ConsomeOutrasApi.Services.LotofacilAPI;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -26,6 +27,8 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddAuthorization();
 
 builder.Services.AddHttpClient();
+
+builder.Services.AddScoped<LotoFacilService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
