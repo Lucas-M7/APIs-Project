@@ -1,8 +1,5 @@
 using System.Reflection;
-using System.Text;
 using Api_Que_ConsomeOutrasApi.Services.LotofacilAPI;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,7 +18,8 @@ builder.Services.AddSwaggerGen(options =>
     {
         Version = "v1",
         Title = "SyncAPI",
-        Description = "An ASP.NET Core Web API than makes the consumption of other APIs."
+        Description = "An ASP.NET Core Web API than makes the consumption of other APIs." +
+        " APIs used: Nager Date, MyIp.com, ViaCep, GithubAPI and FipeVeiculos"
     });
 
     var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
