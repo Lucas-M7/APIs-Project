@@ -44,7 +44,7 @@ public class LotofacilController : ControllerBase
             for (int i = 0; i < numeros.Count; i++)
             {
                 var gameTitle = $"JOGO N° {i + 1}";
-                var gameNumbers = numeros[i];
+                var gameNumbers = string.Join(" ", numeros[i]);
                 jsonResult.Add(new { título = gameTitle, números = gameNumbers });
             }
 
