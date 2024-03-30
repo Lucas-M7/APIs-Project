@@ -39,6 +39,6 @@ public class LotoFacilService
         }
 
         linha.Sort();
-        return linha.ToArray();
+        return [.. linha];
     }
 }

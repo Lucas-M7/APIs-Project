@@ -1,6 +1,7 @@
 using System.Reflection;
 using Api_Que_ConsomeOutrasApi.Services.LotofacilAPI;
 using Microsoft.OpenApi.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
