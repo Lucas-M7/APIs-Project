@@ -20,7 +20,7 @@ builder.Services.AddSwaggerGen(options =>
         Version = "v1",
         Title = "SyncAPI",
         Description = "An ASP.NET Core Web API than makes the consumption of other APIs." +
-        " APIs used: Nager Date, MyIp.com, ViaCep, GithubAPI and FipeVeiculos"
+        " APIs used: Nager Date, ViaCep, GithubAPI and FipeVeiculos"
     });
 
     var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
